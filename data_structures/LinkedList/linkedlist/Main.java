@@ -1,7 +1,11 @@
 package linkedlist;
+import linkedlist.LinkedList;
+
 
 public class Main{
+	
      public static void main(String args[]) {
+    	 
      LinkedList myLinkedList = new LinkedList(4);
      
 //     myLinkedList.getHead();
@@ -55,7 +59,8 @@ public class Main{
      myLinkedList.printList();
      
      System.out.print("\n");
-     System.out.println("printing all: ");
+     System.out.println
+     ("printing all: ");
      myLinkedList.printAll();
 
     }
