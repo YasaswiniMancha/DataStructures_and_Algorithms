@@ -31,6 +31,22 @@ public class LinkedList {
 	//The length is set to 1, reflecting that there is one node in the list.
 	
 	
+	
+	public void printList() {
+		Node temp= head;
+		while(temp!=null) {
+			System.out.println(temp.value);
+			temp=temp.next;
+		}
+	}
+	//This method traverses the entire linked list and prints the value of each node.
+	//A temporary node temp is initialized to point to the head.
+	//The method enters a loop that continues until temp is null (indicating the end of the list).
+	//Inside the loop, it prints the value of the current node (temp.value).
+	//temp is then updated to point to the next node (temp.next).
+	//When temp becomes null, the loop ends, and all the node values have been printed.
+	
+	
 	 public void printAll() {
 	        if (length == 0) {
 	            System.out.println("Head: null");
@@ -56,19 +72,7 @@ public class LinkedList {
 	 //If not empty, it calls the printList() method to print all the values in the list.
 	 
 	
-	public void printList() {
-		Node temp= head;
-		while(temp!=null) {
-			System.out.println(temp.value);
-			temp=temp.next;
-		}
-	}
-	//This method traverses the entire linked list and prints the value of each node.
-	//A temporary node temp is initialized to point to the head.
-	//The method enters a loop that continues until temp is null (indicating the end of the list).
-	//Inside the loop, it prints the value of the current node (temp.value).
-	//temp is then updated to point to the next node (temp.next).
-	//When temp becomes null, the loop ends, and all the node values have been printed.
+	
 	
 	
 	
@@ -312,6 +316,13 @@ public class LinkedList {
 	//before is updated to temp (current node) and temp is updated to after (the original next node). This advances the traversal to the next node in the original list.
     //By the end of the loop, all the next pointers of the nodes in the linked list will have been reversed. The head now points to the original last node, and the tail points to the original first node.
 	
+	
+	  public void makeEmpty() {
+	        head = null;
+	        tail = null;
+	        length = 0;
+	    }
+
 	
 	
 }

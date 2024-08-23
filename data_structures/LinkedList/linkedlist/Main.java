@@ -44,11 +44,11 @@ public class Main{
      
      System.out.print("\n");
      System.out.print("insert 89 value at node 4: ");
-     myLinkedList.set(4,89);
+     myLinkedList.insert(4,89);
      myLinkedList.printList();
      
      System.out.print("\n");
-     System.out.print("after removing a particular element 3: ");
+     System.out.print("after removing a particular index element: ");
      myLinkedList.remove(3);
      myLinkedList.printList();
      
@@ -58,9 +58,14 @@ public class Main{
      myLinkedList.printList();
      
      System.out.print("\n");
-     System.out.println
-     ("printing all: ");
+     System.out.println("printing all: ");
      myLinkedList.printAll();
+     
+     System.out.print("\n");
+     System.out.println("emptying the linkedlist: ");
+     myLinkedList.makeEmpty();
+     myLinkedList.printAll();
+     
 
     }
      
