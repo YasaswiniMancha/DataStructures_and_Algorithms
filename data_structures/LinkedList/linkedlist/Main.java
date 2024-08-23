@@ -1,5 +1,4 @@
 package linkedlist;
-import linkedlist.LinkedList;
 
 
 public class Main{
@@ -35,7 +34,7 @@ public class Main{
      myLinkedList.printList();
      
      System.out.print("\n");
-     System.out.print("To find/get a particular element: ");     
+     System.out.print("To find/get a particular index: ");     
      System.out.print(myLinkedList.get(3) + "\n" );
      
      System.out.print("\n");
