@@ -324,34 +324,62 @@ public class LinkedList {
 	        tail = null;
 	        length = 0;
 	    }
-	  
-	  
-   
+
+
+
 	public Node findMiddleNode() {
-		Node slow =head;
-		Node fast= head;
-		while(fast!=null && fast.next!=null) {
-			slow= slow.next;
-			fast=fast.next.next;
+		// Initialize two pointers, slow and fast, both starting at the head of the linked list.
+		Node slow = head;
+		Node fast = head;
+
+		// Loop until fast reaches the end of the list.
+		// The loop runs while fast is not null and fast.next is also not null.
+		// This ensures that fast can advance two steps in each iteration.
+		while (fast != null && fast.next != null) {
+			// Move the slow pointer one step forward.
+			slow = slow.next;
+
+			// Move the fast pointer two steps forward.
+			fast = fast.next.next;
 		}
+
+		// When the loop ends, the slow pointer will be at the middle node of the list.
+		// Return the node where slow is currently pointing.
 		return slow;
 	}
-	
-	//Floyd's Cycle-Finding Algorithm , also known as the "tortoise and the hare" algorithm
-	public boolean hasLoop(){
-	    Node slow=head;
-	    Node fast= head;
-	    while(fast!=null && fast.next!=null){
-	        slow=slow.next;
-	        fast=fast.next.next;
-	        if(slow ==fast)
-	            return true;
-	         }
-	    
-	     return false;
+
+
+
+	public boolean hasLoop() {
+	    // Initialize two pointers, slow and fast, both starting at the head of the linked list.
+	    Node slow = head;
+	    Node fast = head;
+
+	    // Loop until fast reaches the end of the list.
+	    // The loop runs while fast is not null and fast.next is also not null.
+	    // This ensures that fast can safely move two steps forward.
+	    while (fast != null && fast.next != null) {
+	        // Move the slow pointer one step forward.
+	        slow = slow.next;
+
+	        // Move the fast pointer two steps forward.
+	        fast = fast.next.next;
+
+	        // Check if the slow and fast pointers have met.
+	        // If they point to the same node, a loop exists in the list.
+	        if (slow == fast) {
+	            return true; // Loop detected.
+	        }
+	    }
+
+	    // If the loop exits without slow and fast meeting, there is no loop.
+	    return false;
 	}
-	
-	
+
+	//this hasLoop method is used to find out that there is loop in the linked list or not,using below algorithm
+	//Floyd's Cycle-Finding Algorithm , also known as the "tortoise and the hare" algorithm
+
+
 }
 
 
