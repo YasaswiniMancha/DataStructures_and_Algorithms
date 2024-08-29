@@ -2,8 +2,8 @@ package linkedlist;
 
 public class LinkedList {
      
-	private Node head;
-	private Node tail;
+	 Node head;
+	 Node tail;
 	private int length;
 	
 	class Node{
@@ -26,7 +26,7 @@ public class LinkedList {
         length = 1; 
 	}
 	//This constructor initializes the linked list with a single node.
-	//A new Node object is created with the given value.
+	//A new Node object is created with the given value.3
 	//Both head and tail attributes are set to this new node since it's the only node in the list.
 	//The length is set to 1, reflecting that there is one node in the list.
 	
@@ -77,14 +77,17 @@ public class LinkedList {
 	
 	
 	
-	public void getHead() {
+	public Node getHead() {
 		System.out.println("Head: "+ head.value);
+		return head;
 	}
-    public void getTail() {
+    public Node getTail() {
     	System.out.println("Tail: "+ tail.value);
+    	return tail;
 	}
-	public void getLength() {
+	public int getLength() {
 		System.out.println("Length: "+ length);
+		return length;
 	}
 	
 	
@@ -98,7 +101,6 @@ public class LinkedList {
 			tail.next=newNode;
 			tail=newNode;
 		}
-		
 		length++;
 	}
 	//The append method adds a new node with the specified value to the end of the linked list.
@@ -322,7 +324,36 @@ public class LinkedList {
 	        tail = null;
 	        length = 0;
 	    }
-
+	  
+	  
+   
+	public Node findMiddleNode() {
+		Node slow =head;
+		Node fast= head;
+		while(fast!=null && fast.next!=null) {
+			slow= slow.next;
+			fast=fast.next.next;
+		}
+		return slow;
+	}
+	
+	//Floyd's Cycle-Finding Algorithm , also known as the "tortoise and the hare" algorithm
+	public boolean hasLoop(){
+	    Node slow=head;
+	    Node fast= head;
+	    while(fast!=null && fast.next!=null){
+	        slow=slow.next;
+	        fast=fast.next.next;
+	        if(slow ==fast)
+	            return true;
+	         }
+	    
+	     return false;
+	}
 	
 	
 }
+
+
+//tip: while inserting some value , we use void  and create Node instance with parameter;
+//while deleteing some node, we return Node  
