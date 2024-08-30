@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.HashSet;
+
 public class LinkedList {
      
 	 Node head;
@@ -375,12 +377,145 @@ public class LinkedList {
 	    // If the loop exits without slow and fast meeting, there is no loop.
 	    return false;
 	}
-
 	//this hasLoop method is used to find out that there is loop in the linked list or not,using below algorithm
 	//Floyd's Cycle-Finding Algorithm , also known as the "tortoise and the hare" algorithm
 
 
-}
+	public Node findKthFromEnd(int k){
+		// Initialize two pointers, slow and fast, both pointing to the head of the linked list.
+		Node slow = head;
+		Node fast = head;
+
+		// Move the fast pointer k steps ahead.
+		for (int i = 0; i < k; i++) {
+			// If fast becomes null, the list has fewer than k nodes.
+			if (fast == null) {
+				return null; // k is larger than the length of the list.
+			}
+			fast = fast.next;
+		}
+
+		// Traverse the list with both pointers until fast reaches the end.
+		while (fast != null) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+
+		// When the loop ends, slow will be pointing to the k-th node from the end.
+		return slow;
+	}
+
+//it returns the k-th node from the end of the list.
+
+	
+	
+	
+
+    public void partitionList(int x) {
+        if (head == null) {
+            return; // If the list is empty, do nothing.
+        }
+
+        // Create two dummy nodes to act as the start of the less and greater/equal partitions.
+        //Two dummy nodes are created with value 0. These act as temporary placeholders and make it easier to manage the two new lists being formed—one for nodes less than x and another for nodes greater than or equal to x.
+        Node lessDummy = new Node(0); 
+        Node greaterDummy = new Node(0); 
+                
+
+        // These pointers will be used to build the two lists.
+        Node less = lessDummy;
+        Node greater = greaterDummy;
+
+        // Start traversing the list.
+        Node current = head;
+        while (current != null) {
+            if (current.value < x) {
+                // Add the node to the end of the 'less' list.
+                less.next = current;
+                less = less.next;
+            } else {
+                // Add the node to the end of the 'greater' list.
+                greater.next = current;
+                greater = greater.next;
+            }
+            // Move to the next node in the original list.
+            current = current.next;
+        }
+
+        // At the end of the loop, 'greater' is at the last node of the greater/equal list.
+        // Terminate the 'greater' list to avoid any potential cycles.
+        greater.next = null;
+
+        // Connect the 'less' list to the 'greater' list.
+        less.next = greaterDummy.next;
+
+        // Update the head to the start of the 'less' list.
+        head = lessDummy.next;
+    }
+    
+    
+    
+    public void removeDuplicatesWithSet(){   //time complexity: O(n) so, more efficient
+        HashSet<Integer> values = new HashSet<>();
+        Node prev= null;
+        Node current=head;
+        while(current!=null){
+            if(values.contains(current.value)){
+                prev.next=current.next;
+                length--;
+            }else{
+                values.add(current.value);
+                prev=current;
+            }
+             current = current.next;
+        }
+    }
+    //Using hashset ,This approach will have a time complexity of O(n), where n is the number of nodes in the linked list. 
+    //You are allowed to use the provided Set data structure in your implementation.
+
+    
+
+    public void removeDuplicates() {    //time complexity: O(n^2) less efficiency
+        Node current = head;
+        while (current != null) {
+            Node runner = current;
+            while (runner.next != null) {
+                if (runner.next.value == current.value) {
+                    runner.next = runner.next.next;
+                    length -= 1;
+                } else {
+                    runner = runner.next;
+                }
+            }
+            current = current.next;
+        }
+    }
+    
+    //Without using a Set - This approach will have a time complexity of O(n^2), where n is the number of nodes in the linked list. 
+    //You are not allowed to use any additional data structures for this implementation.
+    
+    
+    
+
+    public int binaryToDecimal(){
+        int num=0;
+        Node current=head;
+        while(current!=null){
+            num=num*2+current.value;
+            current=current.next;
+        }
+        return num;
+     }
+ }
+//The method binaryToDecimal converts a binary number, represented as a linked list, into its decimal equivalent.
+//An integer variable num is initialized to 0. This variable will hold the cumulative decimal value as the binary number is processed.
+//A variable current is initialized to point to the head of the linked list. The head is typically the first node in the linked list.
+//Node is likely a custom class representing a node in the linked list. Each Node object contains a value (either 0 or 1 for binary) and a next pointer/reference to the next node in the list.
+//A while loop is used to traverse the linked list. The loop continues as long as current is not null. When current is null, it means you've reached the end of the list.
+//Inside the loop, the decimal number num is updated by multiplying the current value of num by 2 and adding the value of the current node (current.value).
+//This operation effectively shifts the binary number to the left by one bit (multiplication by 2) and adds the current binary digit to the least significant bit position.
+//The current pointer is moved to the next node in the linked list using current.next.
+//After the loop has processed all the nodes in the linked list, the method returns the final value of num, which is the decimal equivalent of the binary number represented by the linked list.
 
 
 //tip: while inserting some value , we use void  and create Node instance with parameter;

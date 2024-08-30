@@ -1,6 +1,5 @@
 package linkedlist;
 
-import linkedlist.LinkedList.Node;
 
 public class Main {
 
@@ -21,7 +20,11 @@ public class Main {
 
 		System.out.print("printlist after append: ");
 		myLinkedList.printList();
-
+		
+		System.out.print("\n");
+		System.out.println("kth Node from end of the list: " + myLinkedList.findKthFromEnd(3).value);
+	
+     	System.out.print("\n");
 		myLinkedList.prepend(23);
 		System.out.print("printlist after prepend: ");
 		myLinkedList.printList();
@@ -60,15 +63,23 @@ public class Main {
 
 		System.out.print("\n");
 		System.out.println("Middle Node: " + myLinkedList.findMiddleNode().value);
+		
+		
 
 		System.out.print("\n");
 		System.out.println("printing all: ");
 		myLinkedList.printAll();
 
+		System.out.print("\n partiton list:");
+		myLinkedList.partitionList(45);
+		myLinkedList.printList();
+		
 		System.out.print("\n");
 		System.out.println("emptying the linkedlist: ");
 		myLinkedList.makeEmpty();
 		myLinkedList.printAll();
+		
+		
 
 		LinkedList hasLoopTestingList = new LinkedList(1);
 
@@ -87,7 +98,24 @@ public class Main {
 		} else {
 			System.out.println("The linked list hasLoopTestingList does not have a loop.");
 		}
-
-	}
+       
+		hasLoopTestingList.append(4);
+		hasLoopTestingList.removeDuplicatesWithSet();
+		
+		hasLoopTestingList.append(5);
+		hasLoopTestingList.removeDuplicates();
+		
+		hasLoopTestingList.printList();
+		
+		
+		LinkedList ll= new LinkedList(1);
+		ll.append(1);
+		ll.append(1);
+		ll.append(0);
+		System.out.println("\nprinting ll:");
+		ll.printList();
+		System.out.println("binary conversion of ll: " +ll.binaryToDecimal());
+		
+		}
 
 }
