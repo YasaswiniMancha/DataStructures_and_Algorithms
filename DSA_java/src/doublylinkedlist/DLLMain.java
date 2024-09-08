@@ -19,17 +19,14 @@ public class DLLMain {
     System.out.println("printlist after append: ");
 	
 	dll.printDList();
-	
-	
+
 	System.out.println("printlist after remove last: ");
 	dll.removeLast();	
 	dll.printDList();
 	
-	
 	System.out.println("printlist after prepend: ");
 	dll.prepend(4);	
 	dll.printDList();
-	
 	
 
 	System.out.println("printlist after removeFirst: ");
@@ -74,11 +71,13 @@ public class DLLMain {
     	System.out.println("no");
     }
 	
-    System.out.println("after swap pairs: : ");
+    System.out.println("after swap pairs: ");
     dll.swapPairs();
     dll.printDList();
     dll.swapPairs();
- }
+    
+    }
+	
 	 
 	 
 }
