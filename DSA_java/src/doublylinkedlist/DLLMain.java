@@ -2,7 +2,7 @@ package doublylinkedlist;
 
 public class DLLMain {
 
-	 public static void main(String[] args) {
+	public static void main(String[] args) {
 	
 	DoublyLinkedList dll= new DoublyLinkedList(1);
 	
@@ -16,7 +16,7 @@ public class DLLMain {
 	dll.appendAtLast(4);
 	dll.appendAtLast(5);
 	
-     System.out.println("printlist after append: ");
+    System.out.println("printlist after append: ");
 	
 	dll.printDList();
 	
@@ -55,8 +55,30 @@ public class DLLMain {
     dll.remove(2);
     dll.removeWithIndex(3);
     dll.printDList();
+    
+	System.out.println("printlist after swaping first and last: ");
+    dll.swapFirstLast();
+    dll.printDList();
+    
+    dll.swapFirstLast();
+    
+	System.out.println("printlist after reversing : ");
+	dll.reverse();
+	dll.printDList();
+	dll.reverse();
+    
+	System.out.println("palindrome or not : ");
+    if(dll.isPalindrome()) {
+    	System.out.println("yes");
+    } else {
+    	System.out.println("no");
+    }
 	
-	 }
+    System.out.println("after swap pairs: : ");
+    dll.swapPairs();
+    dll.printDList();
+    dll.swapPairs();
+ }
 	 
 	 
 }
