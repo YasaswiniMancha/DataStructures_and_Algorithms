@@ -1,6 +1,5 @@
 package stack;
 
-import java.util.ArrayList;
 
 public class Stack {
 
@@ -44,7 +43,6 @@ public class Stack {
 	
 	
 	public void push(int value) {
-		Node temp= top;
 		Node newNode=new Node(value);
 		if(height==0) {
 			top=newNode;
@@ -70,10 +68,6 @@ public class Stack {
 	 public void makeEmpty() {
 	        top = null;
 	        height = 0;
-	    }
-	 
-	 
-	
-	 
+	    } 
 	
 }
