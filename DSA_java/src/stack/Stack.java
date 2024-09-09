@@ -1,5 +1,7 @@
 package stack;
 
+import java.util.ArrayList;
+
 public class Stack {
 
 	int height;
@@ -64,5 +66,14 @@ public class Stack {
         return temp;
 	}
 	
+	
+	 public void makeEmpty() {
+	        top = null;
+	        height = 0;
+	    }
+	 
+	 
+	
+	 
 	
 }
