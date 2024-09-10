@@ -33,9 +33,17 @@ public class StackArrayList<T> {
         return stackList.size();
     }
     
-    public void push(T value){
+    public void push(T value) {
         stackList.add(value);
     }
+    
+    public T pop(){
+        if (isEmpty()) {
+        	return null;
+        }
+      return stackList.remove(stackList.size()-1);
+       
+   }
    
     
 }
