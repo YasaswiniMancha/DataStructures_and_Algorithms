@@ -1,4 +1,4 @@
-package stack;
+package stack.arraylist;
 
 public class StackArrayListMain {
 	
@@ -18,19 +18,16 @@ public class StackArrayListMain {
 	        return reversedString;
 	    }
 	
+	   
+	  
 	
     public static void main(String args[]) {
-    	
-    	
-
+    
         String myString = "hello";
         System.out.println("printing string after reverse: ");
         String reversedString = reverseString(myString);
         System.out.println(reversedString);
-    	
-    	
-    	
-    	
+    
     	 StackArrayList<Integer> stackList = new StackArrayList<Integer>();
          
     	 stackList.push(1);
@@ -45,4 +42,5 @@ public class StackArrayListMain {
          stackList.pop();
          stackList.printStack();
     }
+    
 }
