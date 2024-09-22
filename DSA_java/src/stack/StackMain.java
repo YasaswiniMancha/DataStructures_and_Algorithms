@@ -1,7 +1,13 @@
 package stack;
 
 public class StackMain {
+	
+	
+	
     public static void main(String args[]) {
+    	
+    	
+    	
     	Stack st= new Stack(1);
     	st.printStack();
     	st.getHeight();

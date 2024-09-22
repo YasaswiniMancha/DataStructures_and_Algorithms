@@ -4,18 +4,18 @@ public class StackBPMain {
 	    
 		   public static boolean isBalancedParentheses(String paranthesis){  
 		        //  ()()()
-			   StackBP<Character> s = new StackBP<>(); 
+			   StackBP<Character> stack = new StackBP<>(); 
 		        for(char p : paranthesis.toCharArray()){
 		           if(p=='('){
-		               s.push(p);    
+		               stack.push(p);    
 		           }
 		           else if( p==')') {
-		               if(s.isEmpty() || s.pop()!='('){
+		               if(stack.isEmpty() || stack.pop()!='('){
 		                   return false;
 		               }
 		           }
 		       }
-		       return s.isEmpty();
+		       return stack.isEmpty();
 		   }
 
 

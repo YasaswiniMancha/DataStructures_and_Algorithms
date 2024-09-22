@@ -42,6 +42,7 @@ public class Stack {
 	}
 	
 	
+	
 	public void push(int value) {
 		Node newNode=new Node(value);
 		if(height==0) {
@@ -64,6 +65,14 @@ public class Stack {
         return temp;
 	}
 	
+	
+	public int peek() {
+	    if (top == null) {
+	        return -1; // Handle empty stack
+	    }
+	    return top.value;
+	}
+
 	
 	 public void makeEmpty() {
 	        top = null;
